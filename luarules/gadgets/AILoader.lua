@@ -31,10 +31,10 @@ local teams = Spring.GetTeamList()
 
 -- globals
 ShardSpringLua = true -- this is the AI Boot gadget, so we're in Spring Lua
-VFS.Include("luarules/gadgets/ai/boot.lua")
+VFS.Include("luarules/gadgets/dai/boot.lua")
 
 local function checkAImode(modeName)
-	local path = "luarules/gadgets/ai/byar/"..modeName.."/"
+	local path = "luarules/gadgets/dai/byar/"..modeName.."/"
 	if VFS.FileExists(path.."modules.lua") and VFS.FileExists(path.."behaviourfactory.lua") then
 		return true
 	end
@@ -42,9 +42,9 @@ local function checkAImode(modeName)
 end
 
 local DAIlist = {}
-local DAIModes = VFS.SubDirs("luarules/gadgets/ai/byar/")
+local DAIModes = VFS.SubDirs("luarules/gadgets/dai/byar/")
 for i,lmodeName in pairs(DAIModes) do
-	local smodeName = string.sub(lmodeName, string.len("luarules/gadgets/ai/byar/") + 1, string.len(lmodeName) - 1)
+	local smodeName = string.sub(lmodeName, string.len("luarules/gadgets/dai/byar/") + 1, string.len(lmodeName) - 1)
 	if checkAImode(smodeName) == true then
 		DAIlist[smodeName] = true
 	end
